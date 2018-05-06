@@ -1,5 +1,5 @@
 {% extends "layouts/default.html" %} {% macro blogPost(post) %}
-<div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
+<div class="post" data-ks-editable="editable(user, { list: " post="" ",=" " id:=" " post.id=" " })"="">
 	<h2>
 		<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
 	</h2>
@@ -26,8 +26,7 @@
 {% endblock %} {% block content %}
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			{% if filters.category and not data.category %}
+		<div class="col-md-8 col-lg-9">{% if filters.category and not data.category %}
 			<h3 class="text-muted">Invalid Category.</h3>
 			{% else %} {% if data.posts.results.length %} {% if data.posts.totalPages > 1 %}
 			<h4 class="text-weight-normal">
@@ -46,48 +45,37 @@
 				{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
 			</div>
 			{% if data.posts.totalPages > 1 %}
-			<ul class="pagination">
-
-				{% if data.posts.previous %}
-				<li>
-					<a href="?page={{ data.posts.previous }}">
+			<ul class="pagination">{% if data.posts.previous %}
+				<li class="page-item">
+					<a href="?page={{ data.posts.previous }}" class="page-link">
 						<span class="glyphicon glyphicon-chevron-left"></span>
 					</a>
 				</li>
 				{% else %}
-				<li class="disabled">
-					<a href="?page=1">
+				<li class="disabled page-item">
+					<a href="?page=1" class="page-link">
 						<span class="glyphicon glyphicon-chevron-left"></span>
 					</a>
-				</li>
-				{% endif %} {% for p in data.posts.pages %} {% set class = ( "active" if data.posts.currentPage == p else "" ) %}
-				<li class="{{ class }}">
-					{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
-					<a href="?page={{ page }}">{{ p }}</a>
-				</li>
-				{% endfor %} {% if data.posts.next %}
-				<li>
-					<a href="?page={{ data.posts.next }}">
+				</li>{% endif %}
+				 {% for p in data.posts.pages %} {% set class = ( "active" if data.posts.currentPage == p else "" ) %}
+				<li class="{{ class }} page-item">{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
+					<a href="?page={{ page }}" class="page-link">{{ p }}</a>
+				</li>{% endfor %} {% if data.posts.next %}
+				<li class="page-item">
+					<a href="?page={{ data.posts.next }}" class="page-link">
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</a>
-				</li>
-				{% else %}
-				<li class="disabled">
-					<a href="?page={{ data.posts.totalPages }}">
+				</li>{% else %}
+				<li class="disabled page-item">
+					<a href="?page={{ data.posts.totalPages }}" class="page-link">
 						<span class="glyphicon glyphicon-chevron-right"></span>
 					</a>
-				</li>
-				{% endif %}
-
-			</ul>
-			{% endif %} {% else %} {% if data.category %}
+				</li>{% endif %}</ul>{% endif %} {% else %} {% if data.category %}
 			<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
 			{% else %}
 			<h3 class="text-muted">There are no posts yet.</h3>
-			{% endif %} {% endif %} {% endif %}
-		</div>
-		{% if data.categories.length %}
-		<div class="col-sm-4 col-md-3">
+			{% endif %} {% endif %} {% endif %}</div>{% if data.categories.length %}
+		<div class="col-md-4 col-lg-3">
 			<h2>Categories</h2>
 			<div class="list-group" style="margin-top: 70px;">
 				{% set class = ( "active" if not data.category else "" ) %}

@@ -8,7 +8,7 @@
 	<h3>Thanks for getting in touch.</h3>
 	{% else %}
 	<div class="row">
-		<div class="col-sm-8 col-md-6">
+		<div class="col-md-8 col-lg-6">
 			<form method="post">
 				<input type="hidden" name="action" value="contact"> {% set class = ( "has-error" if validationErrors.name else "" ) %}
 				<div class="form-group {{ class }}">
@@ -32,8 +32,7 @@
 				</div>
 				{% set class = ( "has-error" if validationErrors.enquiryType else "" ) %}
 				<div class="form-group {{ class }}">
-					<label>
-						<span>What are you contacting us about?</span>
+					<label>What are you contacting us about?</label>
 						<select name="enquiryType" class="form-control">
 							<option value="">(select one)</option>
 							{% for type in enquiryTypes %} {% set selected = ( 'selected="selected"' if formData.enquiryType == type.value else "" ) %}
