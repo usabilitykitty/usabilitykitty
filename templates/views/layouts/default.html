@@ -10,11 +10,10 @@
 
 	<title>{{ title|default("usabilitykitty") }}</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> {# Customise the stylesheet for your site by editing /public/styles/site.sass #}
-	<!--<link href="/styles/site.css" rel="stylesheet">--> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
-	<link href="/keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
-	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
+	<link href="/styles/site.css" rel="stylesheet"> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
+	<link href="/keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 	<!--[if lt IE 9]>
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
@@ -33,9 +32,9 @@
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
 				&#x2630;</button>
-			<a class="navbar-brand" href="/">usabilitykitty</a>
+			<a class="navbar-brand" href="/"><img src="/images/logo.svg" width="160" alt="Usability Kitty"></a>
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
+				<!--<ul class="nav navbar-nav">
 					{% for link in navLinks %}
 					<li class="{{ 'active' if link.key == section else '' }} nav-item">
 						<a href="{{ link.href }}" class="nav-link">{{ link.label }}</a>
@@ -56,7 +55,7 @@
 						<a href="/keystone/signin" class="nav-link">Sign In</a>
 					</li>
 					{% endif %}
-				</ul>
+				</ul>-->
 			</div>
 		</div>
 	</div>
@@ -68,10 +67,10 @@
 
 
 	{# FOOTER #}
-	<div id="footer" class="container">
+	<!-- <div id="footer" class="container"> 
 		{# You don"t _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it! #}
 		<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-	</div>
+	</div>-->
 
 
 	{# JAVASCRIPT #} {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
