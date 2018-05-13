@@ -60,7 +60,7 @@ let startServer = function(){
   return local_node_process;
 }
 
-const server_files = ['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json'];
+const server_files = ['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json', './templates/**/*.html'];
 const watcher = gulp.watch(server_files);
 watcher.on('change', function(event){
 	restartServer();
