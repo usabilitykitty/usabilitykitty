@@ -1,6 +1,12 @@
 // Override Bootstrap variables in this file, e.g.
 
-$font-size-base: 16px;
+$font-size-base: 1rem;
 // $font-family: 'Lexie Readable Regular';
 // $font-family-bold: 'Lexie Readable Bold';
-$font-family: 'PT Sans';
+$font-family: 'Merriweather Sans';
+
+$spacing-desktop: 20%;
+$padding-desktop: 1.667rem;
+
+$spacing-tablet: 10%;
+$padding-tablet: .833rem;

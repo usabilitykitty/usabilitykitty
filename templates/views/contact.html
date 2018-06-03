@@ -1,6 +1,6 @@
 {% extends "layouts/default.html" %} {% block intro %}
 <div class="container">
-	<h1>Contact Us</h1>
+	<h1>Contact Me</h1>
 </div>
 {% endblock %} {% block content %}
 <div class="container">
@@ -12,28 +12,22 @@
 			<form method="post">
 				<input type="hidden" name="action" value="contact"> {% set class = ( "has-error" if validationErrors.name else "" ) %}
 				<div class="form-group {{ class }}">
-					<label>
-						<span>Name</span>
-						<input type="text" name="name.full" value="{{ formData[" name.full "] }}" class="form-control">
-					</label>
+					<label for="name">Name</label>
+					<input id="name" type="text" name="name.full" value="{{ formData[" name.full "] }}" class="form-control" required>
 				</div>
 				{% set class = ( "has-error" if validationErrors.email else "" ) %}
 				<div class="form-group {{ class }}">
-					<label>
-						<span>Email</span>
-						<input type="email" name="email" value="{{ formData.email }}" class="form-control">
-					</label>
+					<label for="email">Email</label>
+					<input id="email" type="email" name="email" value="{{ formData.email }}" class="form-control" required>
 				</div>
 				<div class="form-group">
-					<label>
-						<span>Phone</span>
-						<input type="text" name="phone" value="{{ formData.phone }}" placeholder="(optional)" class="form-control">
-					</label>
+					<label for="phone">Phone</label>
+					<input type="text" name="phone" value="{{ formData.phone }}" placeholder="(optional)" class="form-control">
 				</div>
 				{% set class = ( "has-error" if validationErrors.enquiryType else "" ) %}
 				<div class="form-group {{ class }}">
-					<label>What are you contacting us about?</label>
-						<select name="enquiryType" class="form-control">
+					<label for="reason">What are you contacting me about?</label>
+						<select id="reason" name="enquiryType" class="form-control" required>
 							<option value="">(select one)</option>
 							{% for type in enquiryTypes %} {% set selected = ( 'selected="selected"' if formData.enquiryType == type.value else "" ) %}
 							<option value="{{type.value}}" {{ selected }}>{{ type.label }}</option>
@@ -42,13 +36,11 @@
 				</div>
 				{% set class = ( "has-error" if validationErrors.message else "" ) %}
 				<div class="form-group {{ class }}">
-					<label>
-						<span>Message</span>
-						<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{ formData.message }}</textarea>
-					</label>
+					<label class="message">Message</label>
+					<textarea id="message" name="message" placeholder="Leave me a message..." rows="4" class="form-control" required>{{ formData.message }}</textarea>
 				</div>
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">Send</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
 				</div>
 			</form>
 		</div>

@@ -18,6 +18,7 @@ Enquiry.add({
 	enquiryType: { type: Types.Select, options: [
 		{ value: 'message', label: 'Just leaving a message' },
 		{ value: 'question', label: 'I\'ve got a question' },
+		{ value: 'connection', label: 'Let\'s network!' },
 		{ value: 'other', label: 'Something else...' },
 	] },
 	message: { type: Types.Markdown, required: true },

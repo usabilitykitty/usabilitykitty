@@ -1,0 +1,38 @@
+$font-size-base: 18px;
+
+.navbar {
+  @include media-breakpoint-up(lg) {
+    padding-left: calc(#{$spacing-tablet} + #{$padding-tablet});
+    padding-right: calc(#{$spacing-tablet} + #{$padding-tablet});
+  }
+  
+  @include media-breakpoint-up(xl) {
+    padding-left: calc(#{$spacing-desktop} + #{$padding-desktop});
+    padding-right: calc(#{$spacing-desktop} + #{$padding-desktop});
+  }
+}
+
+.container {
+	max-width: none;
+	padding: 0;
+	margin: 0;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+	border-radius: 0;
+	background-color: $content-background-color;
+  
+  @include media-breakpoint-up(lg) {
+  	margin-left: $spacing-tablet;
+  	margin-right: $spacing-tablet;
+  }
+  
+  @include media-breakpoint-up(xl) {
+  	margin-left: $spacing-desktop;
+  	margin-right: $spacing-desktop;
+  }
+}
+

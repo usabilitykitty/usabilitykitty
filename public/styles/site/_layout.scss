@@ -1,16 +1,33 @@
 html, body, form, fieldset, table, tr, td, input, button, select, textarea, option {
 	font-family: $font-family;
-	font-size: 18px;
+	font-size: $font-size-base;
 }
 
-#header {
-	margin-top: 30px;
+#skippy {
+	&:focus {
+		margin: .5rem;
+		padding: .25rem;
+		position: absolute;
+		z-index: 1;
+	}
+}
+
+#linkedin-logo {
+	fill: #0077b5;
+	position: relative;
+	top: 2px;
+}
+
+body {
+	background-color: $primary-background-color;
+}
+
+.homepage {
+	min-height: calc(100vh - 303px);
 }
 
 #footer {
-	margin-top: 30px;
-	border-top: 1px solid #eeeeee;
-	padding-top: 30px;
+	padding-top: 1rem;
 	color: #777777;
 }
 

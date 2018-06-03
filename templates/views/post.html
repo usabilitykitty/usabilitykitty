@@ -1,7 +1,7 @@
 {% extends "layouts/default.html" %} {% block content %}
 <div class="container">
 	<div class="row">
-		<div class="col-lg-10 offset-sm-1 col-xl-8 offset-md-2">
+		<div class="col-lg-10 offset-md-1">
 			<article>
 				<p>
 					<a href="/blog">&larr; back to the blog</a>
@@ -11,10 +11,10 @@
 				{% else %}
 				<header>
 					<h1>{{ data.post.title }}</h1>
-					<h5>Posted</h5>
+					<p>Posted
 					{% if data.post.publishedDate %} on {{ data.post._.publishedDate.format("MMMM Do, YYYY") }} {% endif %} {% if data.post.categories and data.post.categories.length %} in {% for cat in data.post.categories %}
 					<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index
-					< data.post.categories.length %}, {% endif %}{% endfor %} {% endif %} {% if data.post.author %} by {{ data.post.author.name.first }} {% endif %} </header>
+					< data.post.categories.length %}, {% endif %}{% endfor %} {% endif %} {% if data.post.author %} by {{ data.post.author.name.first }} {% endif %}</p> </header>
 						<div class="post">
 							{% if data.post.image.exists %}
 							<div class="image-wrap">

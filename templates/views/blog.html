@@ -1,35 +1,35 @@
 {% extends "layouts/default.html" %} {% macro blogPost(post) %}
-<div class="post" data-ks-editable="editable(user, { list: " post="" ",=" " id:=" " post.id=" " })"="">
+<div class="post mb-5" data-ks-editable="editable(user, { list: " post="" ",=" " id:=" " post.id=" " })"="">
 	<h2>
 		<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
 	</h2>
 	<p class="lead text-muted">Posted {% if post.publishedDate %}
-		<br>on {{ post._.publishedDate.format("MMMM Do, YYYY") }} {% endif %} {% if post.categories and post.categories.length %}
-		<br>in {% for cat in post.categories %}
+		on {{ post._.publishedDate.format("MMMM Do, YYYY") }} {% endif %} {% if post.categories and post.categories.length %}
+		in {% for cat in post.categories %}
 		<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index
-		< post.categories.length %}, {% endif %}{% endfor %} {% endif %} {% if post.author %} <br>by {{ post.author.name.first }} {% endif %}
+		< post.categories.length %}, {% endif %}{% endfor %} {% endif %} <!--{% if post.author %} <br>by {{ post.author.name.first }} {% endif %}-->
 	</p>
 	{% if post.image.exists %}
 	<img src="{{ post._.image.fit(160,160) }}" class="img pull-right"> {% endif %}
 	<p>{{ post.content.brief|safe }}</p>
 	{% if post.content.extended %}
-	<p class="read-more">
+	<!-- <p class="read-more">
 		<a href="/blog/post/{{ post.slug }}">Read more...</a>
-	</p>
+	</p> -->
 	{% endif %}
 </div>
 {% endmacro %} {% block intro %}
-<div class="container">
-	{% set title = ( data.category.name if data.category else "Blog" ) %}
-	<h1>{{ title }}</h1>
-</div>
+
+{% set title = ( data.category.name if data.category else "Blog" ) %}
+<h1>{{ title }}</h1>
+
 {% endblock %} {% block content %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-lg-9">{% if filters.category and not data.category %}
 			<h3 class="text-muted">Invalid Category.</h3>
 			{% else %} {% if data.posts.results.length %} {% if data.posts.totalPages > 1 %}
-			<h4 class="text-weight-normal">
+			<p>
 				Showing
 				<strong>{{ data.posts.first }}</strong>
 				to
@@ -37,9 +37,9 @@
 				of
 				<strong>{{ data.posts.total }}</strong>
 				posts.
-			</h4>
+			</p>
 			{% else %}
-			<h4 class="text-weight-normal">Showing {{ utils.plural(data.posts.results.length, "* post") }}.</h4>
+			<p class="text-weight-normal">Showing {{ utils.plural(data.posts.results.length, "* post") }}.</p>
 			{% endif %}
 			<div class="blog">
 				{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
@@ -77,7 +77,7 @@
 			{% endif %} {% endif %} {% endif %}</div>{% if data.categories.length %}
 		<div class="col-md-4 col-lg-3">
 			<h2>Categories</h2>
-			<div class="list-group" style="margin-top: 70px;">
+			<div class="list-group">
 				{% set class = ( "active" if not data.category else "" ) %}
 				<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
 				{% for cat in data.categories %} {% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}

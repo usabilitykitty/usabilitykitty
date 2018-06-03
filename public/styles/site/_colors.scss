@@ -1,0 +1,18 @@
+$primary-color: #197bb7;
+$primary-color-light: lighten($primary-color, 10%);
+$primary-color-lighter: lighten($primary-color, 25%);
+$primary-color-lightest: lighten($primary-color, 40%);
+$primary-color-dark: darken($primary-color, 10%);
+$primary-color-darker: darken($primary-color, 25%);
+$primary-color-darkest: darken($primary-color, 30%);
+
+$secondary-color: #ca773b;
+$secondary-color-light: lighten($secondary-color, 10%);
+$secondary-color-lighter: lighten($secondary-color, 25%);
+$secondary-color-lightest: lighten($secondary-color, 40%);
+$secondary-color-dark: darken($secondary-color, 10%);
+$secondary-color-darker: darken($secondary-color, 25%);
+$secondary-color-darkest: darken($secondary-color, 30%);
+
+$primary-background-color: #5BA4D0;
+$content-background-color: #f2f2f2;
