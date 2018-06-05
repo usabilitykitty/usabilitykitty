@@ -6,7 +6,7 @@ $primary-color-dark: darken($primary-color, 10%);
 $primary-color-darker: darken($primary-color, 25%);
 $primary-color-darkest: darken($primary-color, 30%);
 
-$secondary-color: #ca773b;
+$secondary-color: #c8753a;
 $secondary-color-light: lighten($secondary-color, 10%);
 $secondary-color-lighter: lighten($secondary-color, 25%);
 $secondary-color-lightest: lighten($secondary-color, 40%);
@@ -16,3 +16,5 @@ $secondary-color-darkest: darken($secondary-color, 30%);
 
 $primary-background-color: #5BA4D0;
 $content-background-color: #f2f2f2;
+
+$white: #ffffff;

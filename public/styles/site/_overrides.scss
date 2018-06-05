@@ -1,5 +1,17 @@
 $font-size-base: 18px;
 
+a {
+  &:not(.nav-link):not(.navbar-brand) {
+    color: $primary-color-dark;
+    border-bottom: 1px dashed $primary-color-dark;
+    
+    &:hover, &:focus, &:active {
+      border-bottom: 2px solid $primary-color-darkest;
+      text-decoration: none;
+    }
+  }
+}
+
 .navbar {
   @include media-breakpoint-up(lg) {
     padding-left: calc(#{$spacing-tablet} + #{$padding-tablet});
@@ -34,5 +46,14 @@ $font-size-base: 18px;
   	margin-left: $spacing-desktop;
   	margin-right: $spacing-desktop;
   }
+}
+
+.blockquote {
+  background-color: $white;
+  border-left: .25rem solid $primary-color-dark;
+  color: $secondary-color-dark;
+  font-size: 1.1rem;
+  margin: 1rem 2.5rem;
+  padding: 1rem;
 }
 
