@@ -6,7 +6,7 @@ a {
     border-bottom: 1px dashed $primary-color-dark;
     
     &:hover, &:focus, &:active {
-      border-bottom: 2px solid $primary-color-darkest;
+      border-bottom: 3px solid $primary-color-darkest;
       text-decoration: none;
     }
   }
@@ -24,6 +24,12 @@ a {
   }
 }
 
+.nav-item {
+  &.active {
+      border-bottom: 3px solid $primary-color-dark;
+  }
+}
+
 .container {
 	max-width: none;
 	padding: 0;
@@ -34,6 +40,7 @@ a {
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
+  min-height: calc(100vh - 123px);
 	border-radius: 0;
 	background-color: $content-background-color;
   
