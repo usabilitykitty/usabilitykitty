@@ -43,6 +43,14 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+	
+	{% if data.post %}
+	<!-- LinkedIn metadata -->
+	<meta property='og:title' content='{{ data.post.title }}' />
+	<meta property='og:image' content='http://www.usabilitykitty.com/images/logo.svg' />
+	<meta property='og:description' content='{{ data.post.content.brief }}' />
+	<meta property='og:url' content='http://www.usabilitykitty.com/blog/post/{{ data.post.slug }}' />
+	{% endif %}
 
 {# Customise the stylesheet for your site by editing /public/styles/site.sass #}
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->

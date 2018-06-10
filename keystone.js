@@ -26,6 +26,9 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
+	'wysiwyg additional options': {
+		'forced_root_block': ''
+	}
 });
 
 // Load your project's Models
