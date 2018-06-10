@@ -20,6 +20,13 @@ html, body, form, fieldset, table, tr, td, input, button, select, textarea, opti
 	top: 2px;
 }
 
+#header {
+	position: relative;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
 body {
 	background-color: $primary-background-color;
 }
