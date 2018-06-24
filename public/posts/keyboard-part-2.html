@@ -1,0 +1,38 @@
+<p>Here at Usability Kitty, we (and by we I mean me  this is a one-cat show!) pride ourselves on puns, so this week I give you several <em>"Keys" to Better Keyboard Accessibility</em>. These include "key" tips, as well as literal keyboard keys (the ones that clickity-clack under your fingertips). This is a continuation of a previous blog post, Focus on the Keyboard &mdash; please give this post a read first if you haven't already!</p>
+<h2>Keyboard Keys</h2>
+<p>Now that we have a better understanding of what focus is, we can dive into a few of the most commonly used keyboard keys when navigating the web.</p>
+<h3>Key #1: Tab</h3>
+<p>We've already briefly discussed the tab key above. You can use tab to move to the next focusable element on a web page.</p>
+<p>It is worth noting here that non-focusable elements will not be affected by pressing the tab key. You will not see the focus change to a paragraph, <code>div</code>, <code>span</code>, list item, etc. unless that particular element has specific <code>tabindex</code>. Before I was familiar with the concept of focus and its purpose, I became frustrated when my screen reader wasn't reading text within my <code>div</code> or <code>p</code> elements, but this was normal. Tab was not the key I was looking for!</p>
+<h3>Key #2: Shift</h3>
+<p>Tab will move you forward in the tab order, but how can you move back? Shift + tab of course!</p>
+<h3>Key #3: Enter</h3>
+<p>Semantic HTML buttons and inputs of type submit, button, reset, and file will respond to the enter key. You can also use the enter key to activate links.</p>
+<h3>Key #4: Space</h3>
+<p>The spacebar is used to toggle other input controls. This includes checking checkboxes and radio buttons. The spacebar will activate a semantic button as well.</p>
+<h3>Keyboard Keys Bonus Round: Arrow Keys</h3>
+<p>When not focused on a semantically focusable element, the up and down arrow keys can scroll the page up and down. Additionally, you can use them to move between options in a select dropdown. All four arrow keys can also move between radio button options and values in an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range">input of type range</a>.</p>
+<h2>"Key" Tips</h2>
+<p>Now that we're more familiar with focus and keyboard keys, let's discuss some quick tips.</p>
+<h3>Tip #1: Add a Skip Link</h3>
+<p>This should be one of the first elements on a page to receive focus. Skip links allows the user to bypass long lists of other focusable elements, like links in your navigation, to get straight to your primary content. You can have multiple skip links if you feel the need to provide quick navigation to other significant areas of the page, but one is often enough.</p>
+<p>Often times skip links are positioned off-screen for screen reader users, but keep in mind that keyboard users can be sighted, too. For best results, allow your skip link to become visible somewhere near the top of your page when it receives focus.</p>
+<p><a href="https://webaim.org/techniques/skipnav/">WebAIM has a great article on skip links</a> if you'd like to learn more.</p>
+<h3>Tip #2: Check Your Focus Indicator</h3>
+<p>Even if you can tab around on your site, your users will become completely lost without a focus indicator. Again, will display by default as either a dotted line in Firefox and Internet Explorer or a blue glow in Chrome and Safari. Feel free to add your own custom focus indicator(s), but be sure that there is some visual indicator on all of focusable elements when they receive focus.</p>
+<p>Beware of the <a href="http://www.outlinenone.com/">infamous outline: 0</a>. This is included in most CSS resets and will remove the focus indicator entirely. If you use a CSS reset, be sure to restore your outline or provide some other visual indicator.</p>
+<h3>Tip #3: Test Your Tab Order</h3>
+<p>Normally the tab order follows the structure of the DOM (Document Object Model, or the structure of your HTML). Your tab order should be logical and follow a standard reading order. This typically means left to right and top to bottom (unless your site is in a language that reads right to left, like Arabic).</p>
+<p>If you use absolute or relative positioning, floats, or flexbox to move elements around on the page, be sure that the tab order still makes sense with your visual presentation. If your focus jumps to an unexpected area of the page, restructure your markup so that the tab order is easier to follow.</p>
+<h3>Tip #4: Use Semantic HTML Elements</h3>
+<p>Unless you have a very good reason, avoid using elements like <code>div</code>s, <code>span</code>s, or <code>li</code>s for anything more than displaying text or lists. Don't style a <code>div</code> to look and act like a button or a <code>span</code> to look and act like a link (or worse, style a button to look like a link, or vice versa). Semantic form elements and links already come with all the proper roles and functionality you need for assistive technologies.</p>
+<p>Always consider what behavior you expect an element to perform and consider if a semantic HTML element might be suitable. Consider the following examples:</p>
+<ul>
+<li><strong>Do you need to select multiple items in a list?</strong><br /> Use checkboxes.</li>
+<li><strong>Do you need to select one of a number of items?</strong><br /> Use radio buttons or a select dropdown.</li>
+<li><strong>Do you need to perform an action, like submitting a form or opening a modal dialog?</strong><br /> Use a button.</li>
+<li><strong>Do you need to navigate to another page or a different location the same page?</strong><br /> Use a link.</li>
+</ul>
+<p>This isn't to say that you can't ever use a <code>div</code> as a button. ARIA roles can fill in the gaps where semantic HTML is not possible, but only use this approach as a last resort and/or when the functionality you are looking for is not available through a semantic element. <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML">Mozilla Developer Network has a good article on semantic HTML for further reading</a>.</p>
+<h2>Summary</h2>
+<p>Keyboard support is a vital aspect of accessibility. By learning some common keystrokes and equipping yourself with a few helpful tips, you can better keep the keyboard in mind while developing for the web.</p>

@@ -1,0 +1,54 @@
+<p>This post is the first of two parts. Tune in next week for <em>Four "Keys" to Better Keyboard Accessibility</em>.</p>
+<h2>The Keyboard as an Assistive Technology</h2>
+<p>When we think of assistive technology, there are a few pieces of software and settings that immediately come to mind. Screen readers, screen magnification, high contrast mode, and speech to text are some examples. Equally important is hardware support. One of the most commonly used pieces of hardware in the accessibility realm is something you probably already use &mdash; your keyboard.</p>
+<h3>Going Mouseless</h3>
+<p>Not everyone likes (or is able to use) a mouse for various reasons. Some of them include:</p>
+<ul>
+<li><strong>Abilities:</strong> Some users may not be able to use a standard mouse due to physical limitations, such as dexterity (unable to effectively move or click the mouse) or vision loss (unable to see the mouse cursor)</li>
+<li><strong>Comfort:</strong> Keyboards may be more pleasant to use for some people, especially those with chronic wrist pain caused by arthritis or Carpal Tunnel Syndrome</li>
+<li><strong>Efficiency:</strong> Power users can move more quickly and with greater accuracy using a keyboard</li>
+<li><strong>Alternative devices:</strong> Users with motor disabilities may prefer to map keyboard keys to other devices like switches or buttons, or may use tools like a mouth stick to interact with their touch screen or keyboard</li>
+</ul>
+<h2>Keyboards and Focus</h2>
+<p>Before we cover anything else, it's important to review the concept of focus, as I'll be referring to it quite a bit later.</p>
+<p>It can help to think of focus as a keyboard equivalent of the mouse hover state. When navigating with a mouse, actionable HTML elements may receive some slightly different styles when the cursor moves over them. This indicates to the user user that they can perform some action on or within the element. For example, a when a user hovers over a button, the button's background color might change from gray to blue to indicate to the user that they can click on the button to submit a form.</p>
+<p>There is a similar, although more subtle feature for keyboards to indicate an actionable item, much like hover, but for keyboards. This is called focus.</p>
+<h3>Focus Style</h3>
+<p>Much like hover, you can tell when an element is receiving focus based on its appearance (CSS style). The default focus state varies between browsers.</p>
+<p>For a button in Chrome and Safari, the focus indicator is a light blue glowing outline. In IE, it's a dashed gray outline. In Firefox, it's a bit of a combination of the two, with a blue border on the outside of the button and a dashed outline inset within the button.</p>
+<figure class="figure">
+  <img class="img-thumbnail img-fluid mx-auto d-block figure-img" src="/images/keyboard/submit-button-focused.png" alt="The various default focus indicators" />
+  <figcaption class="figure-caption">
+    From left to right: A focused button in Safari on MacOS, followed by Chrome, Firefox, and Internet Explorer 11 on Windows 10.
+  </figcaption>
+</figure>
+<h4>A Note on Safari</h4>
+<p>At the time of writing, you must manually turn on the focus indicator in Safari. Coming from a Windows background, this tripped me up the first time I began testing keyboard accessibility on my Mac. To enable the focus indicator, open the Safari menu, then Preferences, and click on the Advanced tab, then check the option "Press tab to highlight each item on a webpage."</p>
+<img class="mb-4 img-thumbnail img-fluid mx-auto d-block" src="/images/keyboard/safari-accessibility-focus.png" alt="Safari forces you to toggle a setting in order to see a focus indicator" />
+<h3>Receiving Focus</h3>
+<p>Only one element may receive focus at one time. When the focus leaves an element, it is said to be "blurred."</p>
+<p>How does an element receive focus? There are several ways, although there are <a href="https://www.sitepoint.com/when-do-elements-take-the-focus/">some exceptions for certain elements receiving focus depending on the browser</a>:</p>
+<ol>
+<li>By hitting the tab key (move forward) or shift + tab (move backward)</li>
+<li>By being clicked</li>
+<li>By switching focus via JavaScript</li>
+</ol>
+<h3>Focusable Elements</h3>
+<p>Not all elements can (or should) receive focus. Generally, only elements that can be used to trigger an action or navigate the page should be focusable. Disabled elements and <a href="https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/">elements that are hidden</a> do not receive focus.</p>
+<p>Focusable elements can fall into two categories &mdash; semantic HTML elements and non-semantic HTML elements, which I will refer to as <em>custom controls</em>.</p>
+<h4>Semantic Focus</h4>
+<p>Certain semantic elements can receive focus by default, without any additional attributes or JavaScript. These semantically focusable elements include:</p>
+<ul>
+<li>Buttons</li>
+<li>Links</li>
+<li>Input fields</li>
+<li>Text areas</li>
+<li>Checkboxes</li>
+<li>Radio buttons</li>
+<li>Areas (within image maps)</li>
+</ul>
+<h4>Custom Controls</h4>
+<p>Aside from the semantic elements, other elements like <code>div</code>s and <code>span</code>s can receive focus by assigning the <code>tabindex</code> attribute. A <code>tabindex</code> with a value of 0 will allow an element to appear normally in the tab order (more about this later).</p>
+<p>A <code>tabindex</code> of -1 will only allow the element to receive focus programmatically through JavaScript. This means that the user will not be able to access the element while navigating the document through the normal tab order flow.</p>
+<p>While the <code>tabindex</code> attribute can have positive values, you should avoid using positive values to manually manage your tab order, as it can be confusing.</p>
+<p>Use non-semantic elements with caution, as they don't provide the same native keyboard support as semantic elements without additional ARIA and JavaScript.</p>
