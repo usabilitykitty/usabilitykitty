@@ -16,11 +16,19 @@ exports = module.exports = function (req, res) {
 
 	// Load the current post
 	view.on('init', function (next) {
-
-		var q = keystone.list('Post').model.findOne({
-			state: 'published',
+		// From https://gist.github.com/paulbrie/42ecc35a75b1372d7227c57249c0ae3c
+		// Default behavior
+		var postSearch = {
 			slug: locals.filters.post,
-		}).populate('author categories');
+			state: 'published',
+		};
+
+		// Allow admin user to see the post in all cases by removing post state
+		if (locals.user && locals.user.isAdmin) {
+			delete postSearch.state;
+		}
+
+		var q = keystone.list('Post').model.findOne(postSearch).populate('author categories');
 
 		q.exec(function (err, result) {
 			locals.data.post = result;
