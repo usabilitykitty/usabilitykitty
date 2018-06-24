@@ -1,4 +1,3 @@
-<p>This post is the first of two parts. Tune in next week for <em>Four "Keys" to Better Keyboard Accessibility</em>.</p>
 <h2>The Keyboard as an Assistive Technology</h2>
 <p>When we think of assistive technology, there are a few pieces of software and settings that immediately come to mind. Screen readers, screen magnification, high contrast mode, and speech to text are some examples. Equally important is hardware support. One of the most commonly used pieces of hardware in the accessibility realm is something you probably already use &mdash; your keyboard.</p>
 <h3>Going Mouseless</h3>
@@ -10,7 +9,6 @@
 <li><strong>Alternative devices:</strong> Users with motor disabilities may prefer to map keyboard keys to other devices like switches or buttons, or may use tools like a mouth stick to interact with their touch screen or keyboard</li>
 </ul>
 <h2>Keyboards and Focus</h2>
-<p>Before we cover anything else, it's important to review the concept of focus, as I'll be referring to it quite a bit later.</p>
 <p>It can help to think of focus as a keyboard equivalent of the mouse hover state. When navigating with a mouse, actionable HTML elements may receive some slightly different styles when the cursor moves over them. This indicates to the user user that they can perform some action on or within the element. For example, a when a user hovers over a button, the button's background color might change from gray to blue to indicate to the user that they can click on the button to submit a form.</p>
 <p>There is a similar, although more subtle feature for keyboards to indicate an actionable item, much like hover, but for keyboards. This is called focus.</p>
 <h3>Focus Style</h3>
@@ -52,3 +50,6 @@
 <p>A <code>tabindex</code> of -1 will only allow the element to receive focus programmatically through JavaScript. This means that the user will not be able to access the element while navigating the document through the normal tab order flow.</p>
 <p>While the <code>tabindex</code> attribute can have positive values, you should avoid using positive values to manually manage your tab order, as it can be confusing.</p>
 <p>Use non-semantic elements with caution, as they don't provide the same native keyboard support as semantic elements without additional ARIA and JavaScript.</p>
+<h2>Summary</h2>
+<p>Much like the hover state, the focus state provides users with a clear visual indicator of where they are on the page and what action they are about to take, whether that's clicking a link or submitting a form. Although its appearance may vary between browsers and websites, it is a necessity for those who do not use a mouse. Be sure to keep focus in mind while you design and develop websites.</p>
+<p>This post is the first of two parts. Tune in next week for <em>Four "Keys" to Better Keyboard Accessibility</em>.</p>
