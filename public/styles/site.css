@@ -6038,6 +6038,20 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered td {
     border: 1px solid #ddd !important; } }
 
+@media (max-width: 1199.98px) {
+  h1, .h1 {
+    font-size: 31.5px; }
+  h2, .h2 {
+    font-size: 27px; }
+  h3, .h3 {
+    font-size: 22.5px; }
+  h4, .h4 {
+    font-size: 19.8px; }
+  h5, .h5 {
+    font-size: 18px; }
+  h6, .h6 {
+    font-size: 18px; } }
+
 a:not(.nav-link):not(.navbar-brand) {
   color: #135d8a;
   border-bottom: 1px dashed #135d8a; }
