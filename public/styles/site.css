@@ -6148,6 +6148,9 @@ body {
   max-width: 100%;
   height: auto; }
 
+.twitter-tweet-rendered {
+  margin: 0 auto; }
+
 .swatch {
   height: 5.556rem;
   width: 5.556rem; }
