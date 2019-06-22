@@ -10,5 +10,8 @@ exports = module.exports = function (req, res) {
 	locals.section = 'home';
 
 	// Render the view
-	view.render('index');
+	view.render('index', {
+		title: 'Home | Usability Kitty',
+		description: 'Mandy Vernier explores UX & accessibility'
+	});
 };

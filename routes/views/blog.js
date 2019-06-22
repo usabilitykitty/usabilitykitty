@@ -79,5 +79,8 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Render the view
-	view.render('blog');
+	view.render('blog', {
+		title: 'Blog | Usability Kitty',
+		description: 'Mandy Vernier explores UX & accessibility'
+	});
 };
